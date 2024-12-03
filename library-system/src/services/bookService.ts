@@ -28,6 +28,9 @@ export const returnBook = (bookId: string) => {
   return false;
 };
 
-export const deleteBook = (bookId: string) => {
-  books = books.filter(b => b.id !== bookId);
-};
+export const deleteBook = (id: string): boolean => {
+    const index = books.findIndex((book) => book.id === id);
+    if (index === -1) return false;
+    books.splice(index, 1);
+    return true;
+  };
